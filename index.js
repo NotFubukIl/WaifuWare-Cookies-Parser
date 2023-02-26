@@ -17,7 +17,7 @@ function main(file) {
         obj[parts[0]] = parts[1] + (parts[2] ? ": " + parts[2] : "")
     });
 
-    objects.forEach(r => parsedCookies += r.Host + "	TRUE	/	FALSE	2597573456	" + r.Name + "	" + r.Value + "\n")
+    objects.forEach(r => parsedCookies += r.Host + `	TRUE	/	FALSE	${r.Timestamp}	` + r.Name + "	" + r.Value + "\n")
 
     fs.writeFileSync("./parsed-cookies.txt", parsedCookies)
     console.log(`Parsed: ${__dirname}/parsed-cookies.txt`)
